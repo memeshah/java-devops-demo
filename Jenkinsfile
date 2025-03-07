@@ -21,6 +21,12 @@ pipeline {
                 bat 'docker build -t hello-world-app .'
             }
         }
+		
+		stage('Start Minikube') {
+            steps {
+                bat 'minikube start --driver=docker'
+            }
+        }
 
         stage('Load Image into Minikube') {
             steps {
