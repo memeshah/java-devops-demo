@@ -22,22 +22,5 @@ pipeline {
             }
         }
 		
-		stage('Start Minikube') {
-            steps {
-                bat 'minikube start --driver=docker'
-            }
-        }
-
-        stage('Load Image into Minikube') {
-            steps {
-                bat 'minikube image load hello-world-app'
-            }
-        }
-
-        stage('Deploy to Minikube') {
-            steps {
-                bat 'kubectl apply -f deployment.yaml'
-            }
-        }
     }
 }
